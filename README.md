@@ -1,17 +1,24 @@
 **Description**
 The Admission Form web application enables users to enroll for admission by providing their personal details such as name, email, age (restricted between 18 to 65), and preferred batch timing among four available slots: 6-7AM, 7-8AM, 8-9AM, and 5-6PM. Upon enrollment, users are directed to a payment page to complete the admission process.
-- **Logic**
-  - **Problem** There are a total of 4 batches a day namely 6-7AM, 7-8AM, 8-9AM and 5-6PM. The participants can choose any batch in a month and can move to any other batch next month. I.e. participants can shift from one batch to another in different months but in the same month, they need to be in the same batch.
-  - **solution Implimented**
-        - I have used the Signup and the Login pages to implement the functionality. If any user signup his data is stored inside the Mongodb database along with the Date. 
-          While making the payment the difference between the user enrolled date and the signup date is less than 30 days (within a month) hence the option to change the 
-          batch preference will be disabled.
-        - I the user was already enrolled he will directly login and now again the difference between the previously enrolled date and the current date is checked and if >30 
-          days then the Batch preference change button will be made available.
-        - Upon making the payment the Enrollment date will be updated inside the database and if any Batch preference changes are there they also will be updated in the 
-          database.
-        - For the user Enrollment Date retrieval, updation, and Batch preference updation I have used the "EmaiId" of the user to uniquely identify the user inside the 
-          database. 
+### Logic
+
+#### Problem
+
+- There are a total of 4 batches a day, namely 6-7AM, 7-8AM, 8-9AM, and 5-6PM.
+- The participants can choose any batch in a month and can move to any other batch next month. 
+- Participants can shift from one batch to another in different months, but in the same month, they need to be in the same batch.
+
+#### Solution Implemented
+
+- I have used the **Signup** and **Login** pages to implement the functionality.
+- When a user signs up, their data is stored in the MongoDB database along with the signup date.
+  - While making the payment, if the difference between the user's enrolled date and the signup date is less than 30 days (within a month), the option to change the batch preference will be disabled.
+- If the user was already enrolled and logs in again:
+  - The system checks the difference between the previously enrolled date and the current date. If it's greater than 30 days, the batch preference change button will be made available.
+- Upon successful payment:
+  - The enrollment date will be updated in the database. Any changes in batch preferences will also be updated.
+- For managing user enrollment date retrieval, updating, and batch preference changes, I uniquely identify users in the database using their **Email ID**.
+ 
 
 - Features
   - Enrollment form for admission with user details.
